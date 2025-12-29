@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/login.css">
+</head>
+<body>
+    <div id="login" class="fade-in">
+        <form action="http://localhost/store/login.php" id="form" method="POST" autocomplete="off">
+            <h2 id="title"><u id="underline">Lo</u>gin</h2>
+            <label for="id">
+                <p>Employee ID:</p> 
+                <input type="text" name="empid" id="empid" placeholder="Enter Your Employee ID" required autocomplete="off">
+            </label><br>
+            <label for="pass" class="passw">
+                <p>Password:</p>
+                <input type="password" name="password" id="password" placeholder="Enter Password" required autocomplete="off">
+                <img src="../images/eyeclose.png" id="togglePassword" class="eye-icon"><br>
+            </label><br>
+
+            <input type="hidden" name="role" id="roleInput">
+
+            <button type="submit" id="submit">Submit</button>
+        </form>
+        <div id="image">
+        </div>
+    </div>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const role = params.get("role");
+        if(role) {
+            document.getElementById("roleInput").value = role;
+        }
+
+        const togglePassword = document.getElementById("togglePassword");
+        const passwordInput = document.getElementById("password");
+        togglePassword.addEventListener("click", () => {
+            const type = passwordInput.type === "password" ? "text" : "password";
+            passwordInput.type = type;
+            togglePassword.src =
+                type === "password"
+                ? "../images/eyeclose.png"
+                : "../images/eyeopen.png";
+        });
+    </script>
+</body>
+</html>

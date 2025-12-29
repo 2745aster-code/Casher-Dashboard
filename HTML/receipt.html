@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Shack Receipt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            width: 300px;
+            margin: auto;
+            padding: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .line {
+            border-bottom: 1px dashed #333;
+            margin: 8px 0;
+        }
+
+        table {
+            width: 100%;
+            font-size: 14px;
+        }
+
+        table td {
+            padding: 4px 0;
+        }
+
+        #total {
+            margin-top: 10px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .center {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Fresh Shack</h2>
+    <p><b>Invoice:</b> <span id="inv-no"></span></p>
+    <p><b>Date:</b> <span id="date"></span></p>
+    
+    <div class="line"></div>
+    <p class="center">Thank you for shopping!</p>
+    <div class="line"></div>
+
+    <h3 class="center">Customer Details</h3>
+    <p class="c-detail"><b>Name:</b> <span id="c-name"></span></p>
+    <p class="c-detail"><b>Phone:</b> +91<span id="c-phone"></span></p>
+    <div class="line"></div>
+    
+    <table id="bill-table">
+        <tr>
+            <th align="Left">Product Name</th>
+            <th>Qty</th>
+            <th align="right">Price</th>
+        </tr>
+    </table>
+    <div class="line"></div>
+
+    <div id="total">
+        <p>Subtotal: ₹<span id="t-sub"></span></p>
+        <p>GST (5%): ₹<span id="t-gst"></span></p>
+        <p>Discount: ₹<span id="t-discount"></span></p>
+        <p>Grand Total: ₹<span id="t-grand"></span></p>
+    </div>
+
+    <div class="center">
+        <button onclick="window.print()">🖨 Print Bill</button>
+    </div>
+
+    <script>
+        let billData = JSON.parse(localStorage.getItem("billData")) || {};
+
+        document.getElementById("inv-no").innerText = billData.invoiceNumber;
+        document.getElementById("date").innerText = billData.date;
+
+        document.getElementById("c-name").innerText = billData.customer.name;
+        document.getElementById("c-phone").innerText = billData.customer.phone;
+
+        let table = document.getElementById("bill-table");
+        billData.items.forEach(item => {
+            table.innerHTML += `
+                <tr>
+                    <td>${item.name}</td>
+                    <td align="center">${item.qty}</td>
+                    <td style="text-align: right;">₹${item.price * item.qty}</td>
+                </tr>
+            `;
+        });
+
+        document.getElementById("t-sub").innerText = billData.subtotal;
+        document.getElementById("t-gst").innerText = billData.gst;
+        document.getElementById("t-discount").innerText = billData.discount;
+        document.getElementById("t-grand").innerText = billData.grandTotal;
+    </script>
+</body>
+</html>

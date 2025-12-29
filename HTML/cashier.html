@@ -1,0 +1,2856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cashier Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/cashier.css">
+</head>
+<body>
+    <section id="header">
+        <img src="../Images/badge.png" alt="logo">
+        <span id="cname">FRESH SHACK</span>
+        <div id="information">
+            <div id="menu">
+                <button id="menuToggle">≡</button>
+
+                <ul id="menuList">
+                    <li id="homeBtn">Home</li>
+                    <li id="profileBtn">Profile</li>
+                    <li id="logoutBtn">Logout</li>
+                </ul>
+            </div>
+            <div id="profile">
+                <div id="profile-img">
+                    <span>🧑‍💻</span>
+                </div>
+            </div>
+            <div id="time">
+                <div class="datetime-box">
+                    <span id="time-auto"></span>
+                </div>
+            </div>
+            <div id="date">
+                <div class="datetime-box">
+                    <span id="date-auto"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="content">
+        <div id="category">
+            <h3 id="category-title">Category</h3>
+            <div class="category-item active-category" data-cat="all">
+                <img src="../Images/category/all.png">
+                <span>All</span>
+            </div>
+            <div class="category-item" data-cat="Vegetables">
+                <img src="../Images/category/vegetable.png">
+                <span>Vegetables</span>
+            </div>
+            <div class="category-item" data-cat="Coffee & Drinks">
+                <img src="../Images/category/coffee_drink.png">
+                <span>Coffee & Drinks</span>
+            </div>
+            <div class="category-item" data-cat="Milk & Dairy">
+                <img src="../Images/category/milk_dairy.png">
+                <span>Milk & Dairy</span>
+            </div>
+            <div class="category-item" data-cat="Snacks">
+                <img src="../Images/category/snack.png">
+                <span>Snacks</span>
+            </div>
+            <div class="category-item" data-cat="Cleaning Items">
+                <img src="../Images/category/cleaning_item.png">
+                <span>Cleaning Items</span>
+            </div>
+            <div class="category-item" data-cat="Fresh Fruits">
+                <img src="../Images/category/fresh_fruit.png">
+                <span>Fresh Fruits</span>
+            </div>
+            <div class="category-item" data-cat="Bakery">
+                <img src="../Images/category/bakery.png">
+                <span>Bakery</span>
+            </div>
+            <div class="category-item" data-cat="Personal Care">
+                <img src="../Images/category/personal_care.png">
+                <span>Personal Care</span>
+            </div>
+            <div class="category-item" data-cat="Frozen Food">
+                <img src="../Images/category/frozen_food.png">
+                <span>Frozen Food</span>
+            </div>
+            <div class="category-item" data-cat="Household">
+                <img src="../Images/category/household.png">
+                <span>Household</span>
+            </div>
+            <div class="category-item" data-cat="Baby Care">
+                <img src="../Images/category/baby_care.png">
+                <span>Baby Care</span>
+            </div>
+            <div class="category-item" data-cat="Chocolates">
+                <img src="../Images/category/chocolate.png">
+                <span>Chocolates</span>
+            </div>
+            <div class="category-item" data-cat="Sweets">
+                <img src="../Images/category/sweets.png">
+                <span>Sweets</span>
+            </div>
+            <div class="category-item" data-cat="Ice Creams">
+                <img src="../Images/category/ice_cream.png">
+                <span>Ice Creams</span>
+            </div>
+        </div>
+        <div id="product">
+            <h3 id="product-title">Product List</h3>
+            <input type="text" id="search-box" placeholder="🔍 Search Product...">
+            <div class="product-category product-grid">
+                <div class="cell" data-cat="Chocolates">
+                    <img src="../Images/chocolate/5star.png">
+                    <div class="info">
+                        <p class="product-name">5 Star</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('5 Star', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Coffee & Drinks">
+                    <img src="../Images/coffee_drinks/7up.png">
+                    <div class="info">
+                        <p class="product-name">7UP</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('7UP', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Sweets">
+                    <img src="../Images/sweets/aamras.png">
+                    <div class="info">
+                        <p class="product-name">Aamras</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Aamras', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Personal Care">
+                    <img src="../Images/personal_care/acne_face.png">
+                    <div class="info">
+                        <p class="product-name">Acne Face Wash</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Acne Face Wash', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/almond.png">
+                    <div class="info">
+                        <p class="product-name">Almond</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Almond', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Frozen Food">
+                    <img src="../Images/frozen_foods/aloo_tikki.png">
+                    <div class="info">
+                        <p class="product-name">Aloo Tikki</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Aloo Tikki', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/apple.png">
+                    <div class="info">
+                        <p class="product-name">Apple</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Apple', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Snacks">
+                    <img src="../Images/snacks/apple_chips.png">
+                    <div class="info">
+                        <p class="product-name">Apple Chips</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Apple Chips', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Coffee & Drinks">
+                    <img src="../Images/coffee_drinks/appy_fizz.png">
+                    <div class="info">
+                        <p class="product-name">Appy Fizz</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Appy Fizz', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/arum.png">
+                    <div class="info">
+                        <p class="product-name">Arum</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Arum', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Baby Care">
+                    <img src="../Images/baby_care/bibs.png">
+                    <div class="info">
+                        <p class="product-name">Baby Bibs</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Baby Bibs', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Baby Care">
+                    <img src="../Images/baby_care/blanket.png">
+                    <div class="info">
+                        <p class="product-name">Baby Blankets</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Baby Blanket', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Baby Care">
+                    <img src="../Images/baby_care/bottle.png">
+                    <div class="info">
+                        <p class="product-name">Baby Bottles</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Baby Bottles', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Baby Care">
+                    <img src="../Images/baby_care/car_seats.png">
+                    <div class="info">
+                        <p class="product-name">Baby Car Seat</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Baby Car Seat', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Baby Care">
+                    <img src="../Images/baby_care/carriers.png">
+                    <div class="info">
+                        <p class="product-name">Baby Carrier</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Baby Carrier', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Baby Care">
+                    <img src="../Images/baby_care/chair.png">
+                    <div class="info">
+                        <p class="product-name">Baby Chair</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('baby Chair', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Baby Care">
+                    <img src="../Images/baby_care/comb.png">
+                    <div class="info">
+                        <p class="product-name">Baby Comb</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Baby Comb', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Frozen Food">
+                    <img src="../Images/frozen_foods/baby_corn.png">
+                    <div class="info">
+                        <p class="product-name">Baby Corn</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Baby Corn', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Baby Care">
+                    <img src="../Images/baby_care/diapers.png">
+                    <div class="info">
+                        <p class="product-name">Baby Diapers</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Baby Diapers', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Baby Care">
+                    <img src="../Images/baby_care/hats.png">
+                    <div class="info">
+                        <p class="product-name">Baby Hats</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Baby Hats', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Baby Care">
+                    <img src="../Images/baby_care/lotion.png">
+                    <div class="info">
+                        <p class="product-name">Baby Lotion</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Baby Lotion', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Baby Care">
+                    <img src="../Images/baby_care/nail_clipper.png">
+                    <div class="info">
+                        <p class="product-name">Baby Nail Clipper</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Baby Nail Clipper', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Baby Care">
+                    <img src="../Images/baby_care/oil.png">
+                    <div class="info">
+                        <p class="product-name">Baby Oil</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Baby Oil', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Baby Care">
+                    <img src="../Images/baby_care/onesies.png">
+                    <div class="info">
+                        <p class="product-name">Baby Onesies</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Baby Onesies', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Baby Care">
+                    <img src="../Images/baby_care/plates.png">
+                    <div class="info">
+                        <p class="product-name">Baby Plates</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Baby Plates', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Baby Care">
+                    <img src="../Images/baby_care/powder.png">
+                    <div class="info">
+                        <p class="product-name">Baby Powder</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Baby Powder', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Baby Care">
+                    <img src="../Images/baby_care/shampoo.png">
+                    <div class="info">
+                        <p class="product-name">Baby Shampoo</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Baby Shampoo', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Baby Care">
+                    <img src="../Images/baby_care/socks.png">
+                    <div class="info">
+                        <p class="product-name">Baby Socks</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Baby Socks', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Baby Care">
+                    <img src="../Images/baby_care/spoons.png">
+                    <div class="info">
+                        <p class="product-name">Baby Spoons</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('baby Spoons', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Baby Care">
+                    <img src="../Images/baby_care/swings.png">
+                    <div class="info">
+                        <p class="product-name">Baby Swing</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Baby Swing', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Baby Care">
+                    <img src="../Images/baby_care/toothbrush.png">
+                    <div class="info">
+                        <p class="product-name">Baby Toothbrush</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Baby Toothbrush', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Baby Care">
+                    <img src="../Images/baby_care/towel.png">
+                    <div class="info">
+                        <p class="product-name">Baby Towel</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Baby Towel', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Baby Care">
+                    <img src="../Images/baby_care/walker.png">
+                    <div class="info">
+                        <p class="product-name">Baby Walker</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('baby Walker', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Baby Care">
+                    <img src="../Images/baby_care/wipes.png">
+                    <div class="info">
+                        <p class="product-name">Baby Wipes</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Baby Wipes', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Bakery">
+                    <img src="../Images/bakery/bagel.png">
+                    <div class="info">
+                        <p class="product-name">Bagel</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Bagel', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Bakery">
+                    <img src="../Images/bakery/baguette.png">
+                    <div class="info">
+                        <p class="product-name">Baguettes</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Baguettes', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Sweets">
+                    <img src="../Images/sweets/balushahi.png">
+                    <div class="info">
+                        <p class="product-name">Balushahi</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Balushahi', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/banana.png">
+                    <div class="info">
+                        <p class="product-name">Banana</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Banana', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Snacks">
+                    <img src="../Images/snacks/banana_chips.png">
+                    <div class="info">
+                        <p class="product-name">Banana Chips</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Banana Chips', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Ice Creams">
+                    <img src="../Images/ice_cream/banana.png">
+                    <div class="info">
+                        <p class="product-name">Banana Ice Cream</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Banana Ice Cream', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Chocolates">
+                    <img src="../Images/chocolate/bar_one.png">
+                    <div class="info">
+                        <p class="product-name">Bar One</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Bar One', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Bakery">
+                    <img src="../Images/bakery/baumkuchen.png">
+                    <div class="info">
+                        <p class="product-name">Baumkuchen</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Baumkuchen', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/bean.png">
+                    <div class="info">
+                        <p class="product-name">Bean</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Bean', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/berry.png">
+                    <div class="info">
+                        <p class="product-name">Berry</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Berry', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/betlenut.png">
+                    <div class="info">
+                        <p class="product-name">Betlenut</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Betlenut', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Bakery">
+                    <img src="../Images/bakery/biscuits.png">
+                    <div class="info">
+                        <p class="product-name">Biscuits</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Biscuits', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/bit.png">
+                    <div class="info">
+                        <p class="product-name">Bit</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Bit', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/bitter_gourd.png">
+                    <div class="info">
+                        <p class="product-name">Bitter Gourd</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Bitter Gourd', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/black_berry.png">
+                    <div class="info">
+                        <p class="product-name">Black Berry</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Blackberry', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Ice Creams">
+                    <img src="../Images/ice_cream/blackberry.png">
+                    <div class="info">
+                        <p class="product-name">Blackberry Ice Cream</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Blackberry Ice Cream', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Household">
+                    <img src="../Images/Household/blanket.png">
+                    <div class="info">
+                        <p class="product-name">Blanket</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Blanket', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Household">
+                    <img src="../Images/Household/blender.png">
+                    <div class="info">
+                        <p class="product-name">Blender</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Blender', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Coffee & Drinks">
+                    <img src="../Images/coffee_drinks/blue_tokai.png">
+                    <div class="info">
+                        <p class="product-name">Blue Tokai</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Blue Tokai', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Sweets">
+                    <img src="../Images/sweets/blueberry_cheese_cake.png">
+                    <div class="info">
+                        <p class="product-name">Blueberry Cheese Cake</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Blueberry Cheese Cake', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Ice Creams">
+                    <img src="../Images/ice_cream/blueberry.png">
+                    <div class="info">
+                        <p class="product-name">Blueberry Ice Cream</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Blueberry Ice Cream', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Personal Care">
+                    <img src="../Images/personal_care/body_oil.png">
+                    <div class="info">
+                        <p class="product-name">Body Oil</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Body Oil', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Personal Care">
+                    <img src="../Images/personal_care/body_wash.png">
+                    <div class="info">
+                        <p class="product-name">Body Wash</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Body Wash', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Sweets">
+                    <img src="../Images/sweets/boondi.png">
+                    <div class="info">
+                        <p class="product-name">Boondi</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Boondi', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Coffee & Drinks">
+                    <img src="../Images/coffee_drinks/bovonto.png">
+                    <div class="info">
+                        <p class="product-name">Bovonto</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Bovonto', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Household">
+                    <img src="../Images/Household/bowl.png">
+                    <div class="info">
+                        <p class="product-name">Bowl</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Bowl', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Bakery">
+                    <img src="../Images/bakery/bread.png">
+                    <div class="info">
+                        <p class="product-name">Bread</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Bread', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Bakery">
+                    <img src="../Images/bakery/pretzel.png">
+                    <div class="info">
+                        <p class="product-name">Brezel</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Brezel', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Milk & Dairy">
+                    <img src="../Images/milk_dairy/brie.png">
+                    <div class="info">
+                        <p class="product-name">Brie</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Brie', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/brinjal.png">
+                    <div class="info">
+                        <p class="product-name">Binjal</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Binjal', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Cleaning Items">
+                    <img src="../Images/cleaning_tools/broom.png">
+                    <div class="info">
+                        <p class="product-name">Broom</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Broom', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Snacks">
+                    <img src="../Images/snacks/brownies.png">
+                    <div class="info">
+                        <p class="product-name">Brownies</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Brownies', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Coffee & Drinks">
+                    <img src="../Images/coffee_drinks/bru.png">
+                    <div class="info">
+                        <p class="product-name">Bru</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Bru', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Cleaning Items">
+                    <img src="../Images/cleaning_tools/bucket.png">
+                    <div class="info">
+                        <p class="product-name">Bucket</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Bucket', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Milk & Dairy">
+                    <img src="../Images/milk_dairy/butter.png">
+                    <div class="info">
+                        <p class="product-name">Butter</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Butter', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Milk & Dairy">
+                    <img src="../Images/milk_dairy/butter_milk.png">
+                    <div class="info">
+                        <p class="product-name">Buttermilk</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Buttermilk', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/cabbage.png">
+                    <div class="info">
+                        <p class="product-name">Cabbage</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Cabbage', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Bakery">
+                    <img src="../Images/bakery/cake.png">
+                    <div class="info">
+                        <p class="product-name">Cake</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Cake', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Milk & Dairy">
+                    <img src="../Images/milk_dairy/camembert.png">
+                    <div class="info">
+                        <p class="product-name">Camembert</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Camembert', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Coffee & Drinks">
+                    <img src="../Images/coffee_drinks/campa.png">
+                    <div class="info">
+                        <p class="product-name">Campa</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Campa', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Sweets">
+                    <img src="../Images/sweets/candiess.png">
+                    <div class="info">
+                        <p class="product-name">Candies</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Candies', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/capsicum.png">
+                    <div class="info">
+                        <p class="product-name">Capsicum</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Capsicum', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/carambola.png">
+                    <div class="info">
+                        <p class="product-name">Carambola</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Carambola', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Sweets">
+                    <img src="../Images/sweets/caramel_choco_cake.png">
+                    <div class="info">
+                        <p class="product-name">Caramel Chocolate Cake</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Caramel Chocolate Cake', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Ice Creams">
+                    <img src="../Images/ice_cream/caramel.png">
+                    <div class="info">
+                        <p class="product-name">Caramel Ice Cream</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Caramel Ice Cream', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Sweets">
+                    <img src="../Images/sweets/carrot_pie.png">
+                    <div class="info">
+                        <p class="product-name">Carrat Pie</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Carrat Pie', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/carrot.png">
+                    <div class="info">
+                        <p class="product-name">Carrot</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Carrot', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/cashewnut.png">
+                    <div class="info">
+                        <p class="product-name">Cashewnut</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Cashewnut', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/cauliflower.png">
+                    <div class="info">
+                        <p class="product-name">Cauliflower</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Cauliflower', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Milk & Dairy">
+                    <img src="../Images/milk_dairy/cheese.png">
+                    <div class="info">
+                        <p class="product-name">Cheese</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Cheese', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Snacks">
+                    <img src="../Images/snacks/cheese_balls.png">
+                    <div class="info">
+                        <p class="product-name">Cheese Balls</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Cheese Balls', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Bakery">
+                    <img src="../Images/bakery/cheesecake.png">
+                    <div class="info">
+                        <p class="product-name">Cheese Cake</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Cheese Cake', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Frozen Food">
+                    <img src="../Images/frozen_foods/cheese_corn.png">
+                    <div class="info">
+                        <p class="product-name">Cheese Corn Nugget</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Cheese Corn Nugget', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Snacks">
+                    <img src="../Images/snacks/cheese_dips.png">
+                    <div class="info">
+                        <p class="product-name">Cheese Dips</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Cheese Dips', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Ice Creams">
+                    <img src="../Images/ice_cream/cherry.png">
+                    <div class="info">
+                        <p class="product-name">Cherry Ice Cream</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Cherry Ice Cream', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Ice Creams">
+                    <img src="../Images/ice_cream/chocolate.png">
+                    <div class="info">
+                        <p class="product-name">Chocolate Ice Cream</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Chocolate Ice Cream', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Bakery">
+                    <img src="../Images/bakery/cinnamon_roll.png">
+                    <div class="info">
+                        <p class="product-name">Cinnamon Roll</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Cinnamon Roll', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Coffee & Drinks">
+                    <img src="../Images/coffee_drinks/citra.png">
+                    <div class="info">
+                        <p class="product-name">Citra</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Citra', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Cleaning Items">
+                    <img src="../Images/cleaning_tools/claening_supplies.png">
+                    <div class="info">
+                        <p class="product-name">Cleaning Supplies</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Cleaning Supplies', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Household">
+                    <img src="../Images/Household/clock.png">
+                    <div class="info">
+                        <p class="product-name">Clock</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Clock', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Coffee & Drinks">
+                    <img src="../Images/coffee_drinks/cococola.png">
+                    <div class="info">
+                        <p class="product-name">Coco-Cola</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Coco-Cola', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/coconut.png">
+                    <div class="info">
+                        <p class="product-name">Coconut</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Coconut', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Ice Creams">
+                    <img src="../Images/ice_cream/coconut.png">
+                    <div class="info">
+                        <p class="product-name">Coconut Ice Cream</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Coconut Ice Cream', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Ice Creams">
+                    <img src="../Images/ice_cream/coffee.png">
+                    <div class="info">
+                        <p class="product-name">Coffee Ice Cream</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Coffee Ice Cream', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Household">
+                    <img src="../Images/Household/colander.png">
+                    <div class="info">
+                        <p class="product-name">Colander</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Colander', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Milk & Dairy">
+                    <img src="../Images/milk_dairy/condensed_milk.png">
+                    <div class="info">
+                        <p class="product-name">Condensed Milk</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Condensed Milk', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Personal Care">
+                    <img src="../Images/personal_care/conditioner.png">
+                    <div class="info">
+                        <p class="product-name">Conditioner</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Conditioner', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Bakery">
+                    <img src="../Images/bakery/cookies.png">
+                    <div class="info">
+                        <p class="product-name">Cookies</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Cookies', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Ice Creams">
+                    <img src="../Images/ice_cream/cookies_cream.png">
+                    <div class="info">
+                        <p class="product-name">Cookies & Cream Ice Cream</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Cookies & Cream', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/coriander_leaf.png">
+                    <div class="info">
+                        <p class="product-name">Coriander Leaf</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Coriander', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Snacks">
+                    <img src="../Images/snacks/corn_nuts.png">
+                    <div class="info">
+                        <p class="product-name">Corn Nuts</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Corn Nuts', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Frozen Food">
+                    <img src="../Images/frozen_foods/corn_samosas.png">
+                    <div class="info">
+                        <p class="product-name">Corn Samosas</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Corn Samosas', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Milk & Dairy">
+                    <img src="../Images/milk_dairy/cottage_cheese.png">
+                    <div class="info">
+                        <p class="product-name">Cottage Cheese</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Cottage Cheese', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Bakery">
+                    <img src="../Images/bakery/crackers.png">
+                    <div class="info">
+                        <p class="product-name">Crackers</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Crackers', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Milk & Dairy">
+                    <img src="../Images/milk_dairy/cream.png">
+                    <div class="info">
+                        <p class="product-name">Cream</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Cream', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Coffee & Drinks">
+                    <img src="../Images/coffee_drinks/cream_soda.png">
+                    <div class="info">
+                        <p class="product-name">Cream Soda</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Cream Soda', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Bakery">
+                    <img src="../Images/bakery/croissant.png">
+                    <div class="info">
+                        <p class="product-name">Croissant</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Croissant', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/cucumber.png">
+                    <div class="info">
+                        <p class="product-name">Cucumber</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Cucumber', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Household">
+                    <img src="../Images/Household/cup.png">
+                    <div class="info">
+                        <p class="product-name">Cup</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Cup', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Bakery">
+                    <img src="../Images/bakery/cupcakes.png">
+                    <div class="info">
+                        <p class="product-name">Cupcake</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Cupcake', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Household">
+                    <img src="../Images/Household/curtain.png">
+                    <div class="info">
+                        <p class="product-name">Curtains</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Curtains', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Milk & Dairy">
+                    <img src="../Images/milk_dairy/custard.png">
+                    <div class="info">
+                        <p class="product-name">Custard</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Custard', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Personal Care">
+                    <img src="../Images/personal_care/cuticle_oil.png">
+                    <div class="info">
+                        <p class="product-name">Cuticle Oil</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Cuticle Oil', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Household">
+                    <img src="../Images/Household/cutlery.png">
+                    <div class="info">
+                        <p class="product-name">Cutlery</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Cutlery', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Chocolates">
+                    <img src="../Images/chocolate/dairymilk.png">
+                    <div class="info">
+                        <p class="product-name">Dairy Milk</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Dairy Milk', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/date.png">
+                    <div class="info">
+                        <p class="product-name">Date</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Date', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Coffee & Drinks">
+                    <img src="../Images/coffee_drinks/davidoff_cafe.png">
+                    <div class="info">
+                        <p class="product-name">Davidoff Cafe</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Davidoff Cafe', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Personal Care">
+                    <img src="../Images/personal_care/deodorant.png">
+                    <div class="info">
+                        <p class="product-name">Deodorant</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Deodorant', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Sweets">
+                    <img src="../Images/sweets/dharwad_peda.png">
+                    <div class="info">
+                        <p class="product-name">Dharwad Peda</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Dharwad Peda', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Milk & Dairy">
+                    <img src="../Images/milk_dairy/dipping_sauce.png">
+                    <div class="info">
+                        <p class="product-name">Dipping Sauce</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Dipping Sauce', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Cleaning Items">
+                    <img src="../Images/cleaning_tools/dish_towel.png">
+                    <div class="info">
+                        <p class="product-name">Dish Towel</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Dish Towel', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Snacks">
+                    <img src="../Images/snacks/dried_fruits.png">
+                    <div class="info">
+                        <p class="product-name">Dried Fruit</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Dried Fruit', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Coffee & Drinks">
+                    <img src="../Images/coffee_drinks/duke.png">
+                    <div class="info">
+                        <p class="product-name">Duke's</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Dukes', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Cleaning Items">
+                    <img src="../Images/cleaning_tools/dust_cloth.png">
+                    <div class="info">
+                        <p class="product-name">Dust Cloth</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Dust Cloth', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Cleaning Items">
+                    <img src="../Images/cleaning_tools/dustpan.png">
+                    <div class="info">
+                        <p class="product-name">Dustpan</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Dustpan', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Chocolates">
+                    <img src="../Images/chocolate/eclairs.png">
+                    <div class="info">
+                        <p class="product-name">Eclairs</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Eclairs', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Personal Care">
+                    <img src="../Images/personal_care/face_serum.png">
+                    <div class="info">
+                        <p class="product-name">Face Serum</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Face Serum', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Personal Care">
+                    <img src="../Images/personal_care/face_wash.png">
+                    <div class="info">
+                        <p class="product-name">Face Wash</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Face Wash', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Personal Care">
+                    <img src="../Images/personal_care/face_wipes.png">
+                    <div class="info">
+                        <p class="product-name">Face Wipes</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Face Wipes', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Sweets">
+                    <img src="../Images/sweets/falooda.png">
+                    <div class="info">
+                        <p class="product-name">Falooda</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Falooda', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Household">
+                    <img src="../Images/Household/fan.png">
+                    <div class="info">
+                        <p class="product-name">Fan</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Fan', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Coffee & Drinks">
+                    <img src="../Images/coffee_drinks/fanta.png">
+                    <div class="info">
+                        <p class="product-name">Fanta</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Fanta', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Cleaning Items">
+                    <img src="../Images/cleaning_tools/feather_duster.png">
+                    <div class="info">
+                        <p class="product-name">Feather Duster</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Feather Duster', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Milk & Dairy">
+                    <img src="../Images/milk_dairy/feta.png">
+                    <div class="info">
+                        <p class="product-name">Feta</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Feta', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/fig.png">
+                    <div class="info">
+                        <p class="product-name">Fig</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Fig', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Personal Care">
+                    <img src="../Images/personal_care/floss.png">
+                    <div class="info">
+                        <p class="product-name">Floss</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Floss', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Frozen Food">
+                    <img src="../Images/frozen_foods/french_fries.png">
+                    <div class="info">
+                        <p class="product-name">French Fries</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('French Fries', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Coffee & Drinks">
+                    <img src="../Images/coffee_drinks/frooti.png">
+                    <div class="info">
+                        <p class="product-name">Frooti</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Frooti', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Sweets">
+                    <img src="../Images/sweets/frozen_yogurt.png">
+                    <div class="info">
+                        <p class="product-name">Frozen Yogurt</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Frozen Yogurt', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Bakery">
+                    <img src="../Images/bakery/fruit_cake.png">
+                    <div class="info">
+                        <p class="product-name">Fruit Cake</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Fruit Cake', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Sweets">
+                    <img src="../Images/sweets/fruit_salad.png">
+                    <div class="info">
+                        <p class="product-name">Fruit Salad</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Fruit Salad', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Snacks">
+                    <img src="../Images/snacks/fruit_snacks.png">
+                    <div class="info">
+                        <p class="product-name">Fruit Snacks</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Fruit Snacks', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Sweets">
+                    <img src="../Images/sweets/fudge.png">
+                    <div class="info">
+                        <p class="product-name">Fudge</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Fudge', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Chocolates">
+                    <img src="../Images/chocolate/galaxy.png">
+                    <div class="info">
+                        <p class="product-name">Galaxy</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Galaxy', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/garlic.png">
+                    <div class="info">
+                        <p class="product-name">Garlic</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Garlic', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Chocolates">
+                    <img src="../Images/chocolate/gems.png">
+                    <div class="info">
+                        <p class="product-name">Gems</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Gems', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Milk & Dairy">
+                    <img src="../Images/milk_dairy/ghee.png">
+                    <div class="info">
+                        <p class="product-name">Ghee</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Ghee', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Cleaning Items">
+                    <img src="../Images/cleaning_tools/glove.png">
+                    <div class="info">
+                        <p class="product-name">Gloves</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Gloves', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Coffee & Drinks">
+                    <img src="../Images/coffee_drinks/gold_spot.png">
+                    <div class="info">
+                        <p class="product-name">Gold Spot</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Gold Spot', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/gourd.png">
+                    <div class="info">
+                        <p class="product-name">Gourd</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Gourd', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/gram.png">
+                    <div class="info">
+                        <p class="product-name">Gram</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Gram', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/grapes.png">
+                    <div class="info">
+                        <p class="product-name">Grape</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Grape', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Household">
+                    <img src="../Images/Household/grater.png">
+                    <div class="info">
+                        <p class="product-name">Grater</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Grater', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/green_chilli.png">
+                    <div class="info">
+                        <p class="product-name">Green Chilli</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Green Chilli', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/green_coconut.png">
+                    <div class="info">
+                        <p class="product-name">Green Coconut</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Green Coconut', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/green_jack.png">
+                    <div class="info">
+                        <p class="product-name">Green Jack</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Green Jack', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Frozen Food">
+                    <img src="../Images/frozen_foods/green_peas.png">
+                    <div class="info">
+                        <p class="product-name">Green Peas</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Green Peas', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/greens.png">
+                    <div class="info">
+                        <p class="product-name">Greens</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Greens', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/guava.png">
+                    <div class="info">
+                        <p class="product-name">Guava</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Guava', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Personal Care">
+                    <img src="../Images/personal_care/hair gel.png">
+                    <div class="info">
+                        <p class="product-name">Hair Gel</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Hair Gel', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Personal Care">
+                    <img src="../Images/personal_care/hair_oil.png">
+                    <div class="info">
+                        <p class="product-name">Hair Oil</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('hair Oil', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Bakery">
+                    <img src="../Images/bakery/hamburger.png">
+                    <div class="info">
+                        <p class="product-name">Hamburger</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Hamburger', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Personal Care">
+                    <img src="../Images/personal_care/hand_cream.png">
+                    <div class="info">
+                        <p class="product-name">Hand Cream</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Hand Cream', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Household">
+                    <img src="../Images/Household/heater.png">
+                    <div class="info">
+                        <p class="product-name">Heater</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Heater', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Cleaning Items">
+                    <img src="../Images/cleaning_tools/hose.png">
+                    <div class="info">
+                        <p class="product-name">Hose</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Hose', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Sweets">
+                    <img src="../Images/sweets/ice_cream_choco.png">
+                    <div class="info">
+                        <p class="product-name">Ice Cream Chocolate</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Ice Cream Chocolate', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Household">
+                    <img src="../Images/Household/iron.png">
+                    <div class="info">
+                        <p class="product-name">Iron</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Iron', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/jackfruit.png">
+                    <div class="info">
+                        <p class="product-name">Jackfruit</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Jackfruit', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Sweets">
+                    <img src="../Images/sweets/jam.png">
+                    <div class="info">
+                        <p class="product-name">Jam</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Jam', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Coffee & Drinks">
+                    <img src="../Images/coffee_drinks/jeera_masala.png">
+                    <div class="info">
+                        <p class="product-name">Jeera Masala</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Jeera Masala', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/jujube.png">
+                    <div class="info">
+                        <p class="product-name">Jujube</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Jujube', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Household">
+                    <img src="../Images/Household/kettle.png">
+                    <div class="info">
+                        <p class="product-name">Kettle</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Kettle', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/khada_saag.png">
+                    <div class="info">
+                        <p class="product-name">Khada Saag</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Khada Saag', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Sweets">
+                    <img src="../Images/sweets/khaja.png">
+                    <div class="info">
+                        <p class="product-name">Khaja</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Khaja', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Milk & Dairy">
+                    <img src="../Images/milk_dairy/khoya.png">
+                    <div class="info">
+                        <p class="product-name">Khoya</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Khoya', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Chocolates">
+                    <img src="../Images/chocolate/kitkat.png">
+                    <div class="info">
+                        <p class="product-name">KitKat</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('KitKat', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Sweets">
+                    <img src="../Images/sweets/kulfi.png">
+                    <div class="info">
+                        <p class="product-name">Kulfi</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Kulfi', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/ladies_finger.png">
+                    <div class="info">
+                        <p class="product-name">Ladies Finger</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Ladies Finger', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Household">
+                    <img src="../Images/Household/lamp.png">
+                    <div class="info">
+                        <p class="product-name">Lamp</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Lamp', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Sweets">
+                    <img src="../Images/sweets/lassi.png">
+                    <div class="info">
+                        <p class="product-name">Lassi</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Lassi', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/lemon.png">
+                    <div class="info">
+                        <p class="product-name">Lemon</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Lemon', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Ice Creams">
+                    <img src="../Images/ice_cream/lemon.png">
+                    <div class="info">
+                        <p class="product-name">Lemon Ice Cream</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Lemon Ice Cream', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Coffee & Drinks">
+                    <img src="../Images/coffee_drinks/leo.png">
+                    <div class="info">
+                        <p class="product-name">Leo Coffee</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Leo Coffee', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Coffee & Drinks">
+                    <img src="../Images/coffee_drinks/levista.png">
+                    <div class="info">
+                        <p class="product-name">Levista</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Levista', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/lichi.png">
+                    <div class="info">
+                        <p class="product-name">Lichi</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Lichi', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Coffee & Drinks">
+                    <img src="../Images/coffee_drinks/limca.png">
+                    <div class="info">
+                        <p class="product-name">Limca</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Limca', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Personal Care">
+                    <img src="../Images/personal_care/lip_balm.png">
+                    <div class="info">
+                        <p class="product-name">Lip Balm</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Lip Balm', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Coffee & Drinks">
+                    <img src="../Images/coffee_drinks/mazza.png">
+                    <div class="info">
+                        <p class="product-name">Maaza</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Maaza', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Personal Care">
+                    <img src="../Images/personal_care/makeup_remover.png">
+                    <div class="info">
+                        <p class="product-name">Makeup Remover</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Makeup Remover', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/mango.png">
+                    <div class="info">
+                        <p class="product-name">Mango</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Mango', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Ice Creams">
+                    <img src="../Images/ice_cream/mango.png">
+                    <div class="info">
+                        <p class="product-name">Mango Ice Cream</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Mango Ice Cream', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Sweets">
+                    <img src="../Images/sweets/mango_pie.png">
+                    <div class="info">
+                        <p class="product-name">Mango Pie</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Mango Pie', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Sweets">
+                    <img src="../Images/sweets/marshmallow.png">
+                    <div class="info">
+                        <p class="product-name">Marshmallows</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Marshmallows', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/melon.png">
+                    <div class="info">
+                        <p class="product-name">Melon</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Melon', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Milk & Dairy">
+                    <img src="../Images/milk_dairy/milk.png">
+                    <div class="info">
+                        <p class="product-name">Milk</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Milk', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Sweets">
+                    <img src="../Images/sweets/milk_peda.png">
+                    <div class="info">
+                        <p class="product-name">Milk Peda</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Milk Peda', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Milk & Dairy">
+                    <img src="../Images/milk_dairy/milk_powder.png">
+                    <div class="info">
+                        <p class="product-name">Milk Powder</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Milk Powder', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Sweets">
+                    <img src="../Images/sweets/milk_shake.png">
+                    <div class="info">
+                        <p class="product-name">Milkshake</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Milkshake', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Chocolates">
+                    <img src="../Images/chocolate/milkybar.png">
+                    <div class="info">
+                        <p class="product-name">Milkybar</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Milkybar', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Ice Creams">
+                    <img src="../Images/ice_cream/mint_choco.png">
+                    <div class="info">
+                        <p class="product-name">Mint Chocolate Chip Ice Cream</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Mint Chocolate Chip', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/mint_leaf.png">
+                    <div class="info">
+                        <p class="product-name">Mint Leaf</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Mint Leaf', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Coffee & Drinks">
+                    <img src="../Images/coffee_drinks/mirinda.png">
+                    <div class="info">
+                        <p class="product-name">Mirinda</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Mirinda', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Household">
+                    <img src="../Images/Household/mirror.png">
+                    <div class="info">
+                        <p class="product-name">Mirror</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Mirror', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Snacks">
+                    <img src="../Images/snacks/mixed_nuts.png">
+                    <div class="info">
+                        <p class="product-name">Mixed Nuts</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Mixed Nuts', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Frozen Food">
+                    <img src="../Images/frozen_foods/mixed_veg.png">
+                    <div class="info">
+                        <p class="product-name">Mixed Vegetables</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Mixed Vegetable', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Cleaning Items">
+                    <img src="../Images/cleaning_tools/mop.png">
+                    <div class="info">
+                        <p class="product-name">Mop</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Mop', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Coffee & Drinks">
+                    <img src="../Images/coffee_drinks/mountain_dew.png">
+                    <div class="info">
+                        <p class="product-name">Mountain Dew</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Mountain Dew', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Personal Care">
+                    <img src="../Images/personal_care/mouth_wash.png">
+                    <div class="info">
+                        <p class="product-name">Mouthwash</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Mouthwash', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Snacks">
+                    <img src="../Images/snacks/muffins.png">
+                    <div class="info">
+                        <p class="product-name">Muffins</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Muffins', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Chocolates">
+                    <img src="../Images/chocolate/munch.png">
+                    <div class="info">
+                        <p class="product-name">Munch</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Munch', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/mushroom.png">
+                    <div class="info">
+                        <p class="product-name">Mushroom</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Mushroom', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/musk_melon.png">
+                    <div class="info">
+                        <p class="product-name">Musk Melon</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Musk Melon', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Sweets">
+                    <img src="../Images/sweets/mysore_pak.png">
+                    <div class="info">
+                        <p class="product-name">Mysore Pak</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Mysore Pak', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Personal Care">
+                    <img src="../Images/personal_care/nail_file.png">
+                    <div class="info">
+                        <p class="product-name">Nail File</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Nail File', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Personal Care">
+                    <img src="../Images/personal_care/nail_polish.png">
+                    <div class="info">
+                        <p class="product-name">Nail Polish</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Nail Polish', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Coffee & Drinks">
+                    <img src="../Images/coffee_drinks/nescafe.png">
+                    <div class="info">
+                        <p class="product-name">Nescafe</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Nescafe', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Chocolates">
+                    <img src="../Images/chocolate/nestle.png">
+                    <div class="info">
+                        <p class="product-name">Nestle</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Nestle', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Snacks">
+                    <img src="../Images/snacks/nuts.png">
+                    <div class="info">
+                        <p class="product-name">Nuts</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Nuts', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/onion.png">
+                    <div class="info">
+                        <p class="product-name">Onion</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Onion', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/orange.png">
+                    <div class="info">
+                        <p class="product-name">Orange</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Orange', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Chocolates">
+                    <img src="../Images/chocolate/oreo.png">
+                    <div class="info">
+                        <p class="product-name">Oreo</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Oreo', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Baby Care">
+                    <img src="../Images/baby_care/pacifier.png">
+                    <div class="info">
+                        <p class="product-name">Pacifiers</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Pacifiers', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/palak.png">
+                    <div class="info">
+                        <p class="product-name">Palak</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Palak', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/palm_fruit.png">
+                    <div class="info">
+                        <p class="product-name">Palm Fruit</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('palm Fruit', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Bakery">
+                    <img src="../Images/bakery/pancakes.png">
+                    <div class="info">
+                        <p class="product-name">Pancakes</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Pancakes', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Frozen Food">
+                    <img src="../Images/frozen_foods/panner_burger.png">
+                    <div class="info">
+                        <p class="product-name">Panner Burger Patty</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Paneer Burger Patty', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Frozen Food">
+                    <img src="../Images/frozen_foods/panner_samosa.png">
+                    <div class="info">
+                        <p class="product-name">Paneer Samosas</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Panner Samosas', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/papaya.png">
+                    <div class="info">
+                        <p class="product-name">Papaya</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Papaya', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Cleaning Items">
+                    <img src="../Images/cleaning_tools/paper_towel.png">
+                    <div class="info">
+                        <p class="product-name">Paper Towel</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Paper Towel', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/parwal.png">
+                    <div class="info">
+                        <p class="product-name">Parwal</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Parwal', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Sweets">
+                    <img src="../Images/sweets/pastry.png">
+                    <div class="info">
+                        <p class="product-name">Pastry</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Pastry', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Ice Creams">
+                    <img src="../Images/ice_cream/peanut_butter.png">
+                    <div class="info">
+                        <p class="product-name">Peanut Butter Ice Cream</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Peanut Butter Ice Cream', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/pear.png">
+                    <div class="info">
+                        <p class="product-name">Pear</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Pear', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/peas.png">
+                    <div class="info">
+                        <p class="product-name">Peas</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Peas', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Coffee & Drinks">
+                    <img src="../Images/coffee_drinks/pepsi.png">
+                    <div class="info">
+                        <p class="product-name">Pepsi</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Pepsi', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Personal Care">
+                    <img src="../Images/personal_care/perfumes.png">
+                    <div class="info">
+                        <p class="product-name">Perfume</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Perfume', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Bakery">
+                    <img src="../Images/bakery/pie.png">
+                    <div class="info">
+                        <p class="product-name">Pie</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Pie', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Household">
+                    <img src="../Images/Household/pillow.png">
+                    <div class="info">
+                        <p class="product-name">Pillow</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Pillow', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/pineapple.png">
+                    <div class="info">
+                        <p class="product-name">Pineapple</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Pineapple', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Ice Creams">
+                    <img src="../Images/ice_cream/pistachio.png">
+                    <div class="info">
+                        <p class="product-name">Pistachio Ice Cream</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Pistachio Ice Cream', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Household">
+                    <img src="../Images/Household/plate.png">
+                    <div class="info">
+                        <p class="product-name">Plate</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Plate', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Baby Care">
+                    <img src="../Images/baby_care/play_mat.png">
+                    <div class="info">
+                        <p class="product-name">Play Mat</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Play Mat', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Household">
+                    <img src="../Images/Household/plier.png">
+                    <div class="info">
+                        <p class="product-name">Plier</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Plier', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/plum.png">
+                    <div class="info">
+                        <p class="product-name">Plum</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Plum', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Household">
+                    <img src="../Images/Household/plunger.png">
+                    <div class="info">
+                        <p class="product-name">Plunger</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Plunger', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/pomegranate.png">
+                    <div class="info">
+                        <p class="product-name">Pomegranate</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Pomegranate', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Snacks">
+                    <img src="../Images/snacks/pop_corns.png">
+                    <div class="info">
+                        <p class="product-name">Pop-Corn</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Pop-Corn', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Snacks">
+                    <img src="../Images/snacks/pop-tarts.png">
+                    <div class="info">
+                        <p class="product-name">Pop-Tarts</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Pop-Tarts', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/potato.png">
+                    <div class="info">
+                        <p class="product-name">Potato</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Potato', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Frozen Food">
+                    <img src="../Images/frozen_foods/potato_cheese.png">
+                    <div class="info">
+                        <p class="product-name">Potato Cheese Shots</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Potato Cheese Shots', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Snacks">
+                    <img src="../Images/snacks/potato_chips.png">
+                    <div class="info">
+                        <p class="product-name">Potato Chips</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Potato Chips', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Bakery">
+                    <img src="../Images/bakery/pound_cake.png">
+                    <div class="info">
+                        <p class="product-name">Pound Cake</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Pound Cake', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Milk & Dairy">
+                    <img src="../Images/milk_dairy/pudding.png">
+                    <div class="info">
+                        <p class="product-name">Pudding</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Pudding', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/pumpkin.png">
+                    <div class="info">
+                        <p class="product-name">Pumpkin</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Pumpkin', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Sweets">
+                    <img src="../Images/sweets/pumpkin_pie.png">
+                    <div class="info">
+                        <p class="product-name">Pumpkin Pie</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Pumpkin Pie', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/radish.png">
+                    <div class="info">
+                        <p class="product-name">Radish</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Radish', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/rasin.png">
+                    <div class="info">
+                        <p class="product-name">Rasin</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Rasin', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Coffee & Drinks">
+                    <img src="../Images/coffee_drinks/rasna.png">
+                    <div class="info">
+                        <p class="product-name">Rasna</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Rasna', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Ice Creams">
+                    <img src="../Images/ice_cream/raspberry.png">
+                    <div class="info">
+                        <p class="product-name">Raspberry Ice Cream</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Raspberry Ice Cream', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Personal Care">
+                    <img src="../Images/personal_care/razor.png">
+                    <div class="info">
+                        <p class="product-name">Razor</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Razor', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Coffee & Drinks">
+                    <img src="../Images/coffee_drinks/rc_cola.png">
+                    <div class="info">
+                        <p class="product-name">RC Cola</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Rc Cola', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Ice Creams">
+                    <img src="../Images/ice_cream/choco_chip.png">
+                    <div class="info">
+                        <p class="product-name">Regular Chocolate Chip Ice Cream</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Regular Chocolate Chip', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Snacks">
+                    <img src="../Images/snacks/rice_cakes.png">
+                    <div class="info">
+                        <p class="product-name">Rice Cakes</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Ricce Cakes', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/ridge_gourd.png">
+                    <div class="info">
+                        <p class="product-name">Ridge Gourd</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Ridge Gourd', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/banana.png">
+                    <div class="info">
+                        <p class="product-name">Ripe Banana</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Ripe Banana', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Ice Creams">
+                    <img src="../Images/ice_cream/rocky_hard.png">
+                    <div class="info">
+                        <p class="product-name">Rocky Road Ice Cream</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Rocky Hard Ice Cream', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Bakery">
+                    <img src="../Images/bakery/roll.png">
+                    <div class="info">
+                        <p class="product-name">Roll</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Roll', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Milk & Dairy">
+                    <img src="../Images/milk_dairy/roquefort.png">
+                    <div class="info">
+                        <p class="product-name">Roquefort</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Roquefort', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/rose_berry.png">
+                    <div class="info">
+                        <p class="product-name">Rose Berry</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Rose Berry', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Household">
+                    <img src="../Images/Household/rug.png">
+                    <div class="info">
+                        <p class="product-name">Rug</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Rug', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Bakery">
+                    <img src="../Images/bakery/rye_bread.png">
+                    <div class="info">
+                        <p class="product-name">Rye Bread</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Rye Bread', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Snacks">
+                    <img src="../Images/snacks/salted_nuts.png">
+                    <div class="info">
+                        <p class="product-name">Salted Peanuts</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Salted Peanuts', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Bakery">
+                    <img src="../Images/bakery/sandwich.png">
+                    <div class="info">
+                        <p class="product-name">Sandwich</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Sandwitch', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Cleaning Items">
+                    <img src="../Images/cleaning_tools/sanitizer.png">
+                    <div class="info">
+                        <p class="product-name">Sanitizer</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Sanitizer', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Cleaning Items">
+                    <img src="../Images/cleaning_tools/srub_brush.png">
+                    <div class="info">
+                        <p class="product-name">Scrub Brush</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Scrub Brush', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/shaddock.png">
+                    <div class="info">
+                        <p class="product-name">Shaddock</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Shaddock', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Household">
+                    <img src="../Images/Household/shampoo.png">
+                    <div class="info">
+                        <p class="product-name">Shampoo</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Shampoo', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Personal Care">
+                    <img src="../Images/personal_care/shampoo.png">
+                    <div class="info">
+                        <p class="product-name">Shampoo Bottle</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Shampoo Bottle', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Sweets">
+                    <img src="../Images/sweets/shankarapalli.png">
+                    <div class="info">
+                        <p class="product-name">Shankarpali</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Shankarpali', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Sweets">
+                    <img src="../Images/sweets/shrikhand.png">
+                    <div class="info">
+                        <p class="product-name">Shrikhand</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Shrikhand', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Milk & Dairy">
+                    <img src="../Images/milk_dairy/skim_milk.png">
+                    <div class="info">
+                        <p class="product-name">Skimmed Milk</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Skimmed Milk', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Sweets">
+                    <img src="../Images/sweets/sliced_white.png">
+                    <div class="info">
+                        <p class="product-name">Sliced White</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Sliced White', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Snacks">
+                    <img src="../Images/snacks/smoothies.png">
+                    <div class="info">
+                        <p class="product-name">Smoothies</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Smoothies', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/snake_gourd.png">
+                    <div class="info">
+                        <p class="product-name">Snake Gourd</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Snake Gourd', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Chocolates">
+                    <img src="../Images/chocolate/snikers.png">
+                    <div class="info">
+                        <p class="product-name">Snickers</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Snickers', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Sweets">
+                    <img src="../Images/sweets/saon_papdi.png">
+                    <div class="info">
+                        <p class="product-name">Soan Papdi</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Soan Papdi', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Personal Care">
+                    <img src="../Images/personal_care/soap.png">
+                    <div class="info">
+                        <p class="product-name">Soap</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Soap', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Milk & Dairy">
+                    <img src="../Images/milk_dairy/soft_cheese.png">
+                    <div class="info">
+                        <p class="product-name">Soft Cheese</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Soft Cheese', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Coffee & Drinks">
+                    <img src="../Images/coffee_drinks/sosyo.png">
+                    <div class="info">
+                        <p class="product-name">Sosyo</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Sosyo', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Milk & Dairy">
+                    <img src="../Images/milk_dairy/sour_cream.png">
+                    <div class="info">
+                        <p class="product-name">Sour Cream</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Sour Cream', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Frozen Food">
+                    <img src="../Images/frozen_foods/corn_nuggets.png">
+                    <div class="info">
+                        <p class="product-name">Spicy Corn Nugget</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Spicy Corn Nugget', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Cleaning Items">
+                    <img src="../Images/cleaning_tools/spin_mop.png">
+                    <div class="info">
+                        <p class="product-name">Spin Mop</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Spin Mop', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/spinach.png">
+                    <div class="info">
+                        <p class="product-name">Spinach</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Spinach', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Cleaning Items">
+                    <img src="../Images/cleaning_tools/sponge.png">
+                    <div class="info">
+                        <p class="product-name">Sponge</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Sponge', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Sweets">
+                    <img src="../Images/sweets/sponge_cake.png">
+                    <div class="info">
+                        <p class="product-name">Sponge Cake</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Sponge Cake', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Cleaning Items">
+                    <img src="../Images/cleaning_tools/sponge_mop.png">
+                    <div class="info">
+                        <p class="product-name">Sponge Mop</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Sponge Mop', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Cleaning Items">
+                    <img src="../Images/cleaning_tools/spray_cleaner.png">
+                    <div class="info">
+                        <p class="product-name">Spray Cleaner</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Spray Cleaner', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Coffee & Drinks">
+                    <img src="../Images/coffee_drinks/sprite.png">
+                    <div class="info">
+                        <p class="product-name">Sprite</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Sprite', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Cleaning Items">
+                    <img src="../Images/cleaning_tools/squegee.png">
+                    <div class="info">
+                        <p class="product-name">Squeegee</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Squeegee', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Cleaning Items">
+                    <img src="../Images/cleaning_tools/steel_scourer.png">
+                    <div class="info">
+                        <p class="product-name">Steal Scourcer</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Steal Scourcer', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Ice Creams">
+                    <img src="../Images/ice_cream/strawberry.png">
+                    <div class="info">
+                        <p class="product-name">Strawberry Ice Cream</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Strawberry Ice Cream', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Frozen Food">
+                    <img src="../Images/frozen_foods/sweet_corn.png">
+                    <div class="info">
+                        <p class="product-name">Sweet Corn</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Sweet Corn', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/sweet_potato.png">
+                    <div class="info">
+                        <p class="product-name">Sweet Potato</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Sweet Potato', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Bakery">
+                    <img src="../Images/bakery/swiss_roll.png">
+                    <div class="info">
+                        <p class="product-name">Swiss Roll</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Swiss Roll', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/tamarind.png">
+                    <div class="info">
+                        <p class="product-name">Tamarind</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('tamarind', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Household">
+                    <img src="../Images/Household/teapot.png">
+                    <div class="info">
+                        <p class="product-name">Teapot</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Teapot', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Coffee & Drinks">
+                    <img src="../Images/coffee_drinks/thums_up.png">
+                    <div class="info">
+                        <p class="product-name">Thums Up</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Thums Up', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Bakery">
+                    <img src="../Images/bakery/toast.png">
+                    <div class="info">
+                        <p class="product-name">Toast</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Toast', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Cleaning Items">
+                    <img src="../Images/cleaning_tools/toilet_brush.png">
+                    <div class="info">
+                        <p class="product-name">Toilet Brush</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Toilet Brush', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/tomato.png">
+                    <div class="info">
+                        <p class="product-name">Tomato</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="adddToBill('Tomato', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Household">
+                    <img src="../Images/Household/tool_kit.png">
+                    <div class="info">
+                        <p class="product-name">Tool Kit</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Tool Kit', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Cleaning Items">
+                    <img src="../Images/cleaning_tools/tooth_brush.png">
+                    <div class="info">
+                        <p class="product-name">Toothbrush</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Toothbrush', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Personal Care">
+                    <img src="../Images/personal_care/tooth_paste.png">
+                    <div class="info">
+                        <p class="product-name">Toothpaste</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Toothpaste', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Snacks">
+                    <img src="../Images/snacks/tortilla_chips.png">
+                    <div class="info">
+                        <p class="product-name">Tortilla Chips</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Tortilla Chips', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Household">
+                    <img src="../Images/Household/towel.png">
+                    <div class="info">
+                        <p class="product-name">Towel</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Towel', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Snacks">
+                    <img src="../Images/snacks/trail_mix.png">
+                    <div class="info">
+                        <p class="product-name">Trail Mix</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Trail Mix', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Cleaning Items">
+                    <img src="../Images/cleaning_tools/trash_can.png">
+                    <div class="info">
+                        <p class="product-name">Trash Can</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Trash Can', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Ice Creams">
+                    <img src="../Images/ice_cream/vanilla.png">
+                    <div class="info">
+                        <p class="product-name">Vanilla Ice Cream</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Vanilla Ice Cream', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Household">
+                    <img src="../Images/Household/vase.png">
+                    <div class="info">
+                        <p class="product-name">Vase</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Vase', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Frozen Food">
+                    <img src="../Images/frozen_foods/veg_burger.png">
+                    <div class="info">
+                        <p class="product-name">Veg Burger Patty</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Veg Burger Patty', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Frozen Food">
+                    <img src="../Images/frozen_foods/veg_samosa.png">
+                    <div class="info">
+                        <p class="product-name">Veg Samosas</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Veg Samosas', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Frozen Food">
+                    <img src="../Images/frozen_foods/spring_roll.png">
+                    <div class="info">
+                        <p class="product-name">Veg Spring Roll</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Veg Spring Roll', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Bakery">
+                    <img src="../Images/bakery/wafel.png">
+                    <div class="info">
+                        <p class="product-name">Wafel</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Wafel', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/walnut.png">
+                    <div class="info">
+                        <p class="product-name">Walnut</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Walnut', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/watermelon.png">
+                    <div class="info">
+                        <p class="product-name">Water Melon</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Water Melon', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Milk & Dairy">
+                    <img src="../Images/milk_dairy/whey.png">
+                    <div class="info">
+                        <p class="product-name">Whey</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Whey', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Milk & Dairy">
+                    <img src="../Images/milk_dairy/whipped_milk.png">
+                    <div class="info">
+                        <p class="product-name">Whipped Cream</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Whipped Cream', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Household">
+                    <img src="../Images/Household/whisk.png">
+                    <div class="info">
+                        <p class="product-name">Whisk</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Whisk', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/white_gourd.png">
+                    <div class="info">
+                        <p class="product-name">White Gourd</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('White Gourd', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Cleaning Items">
+                    <img src="../Images/cleaning_tools/wire_brush.png">
+                    <div class="info">
+                        <p class="product-name">Wire Brush</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Wire Brush', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Fresh Fruits">
+                    <img src="../Images/Fruits/wood_apple.png">
+                    <div class="info">
+                        <p class="product-name">Wood Apple</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Wood Apple', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Household">
+                    <img src="../Images/Household/wrench.png">
+                    <div class="info">
+                        <p class="product-name">Wrench</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Wrench', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Vegetables">
+                    <img src="../Images/Vegetable/yam.png">
+                    <div class="info">
+                        <p class="product-name">Yam</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Yam', 20)">+</button>
+                </div>
+                <div class="cell" data-cat="Milk & Dairy">
+                    <img src="../Images/milk_dairy/yogurt.png">
+                    <div class="info">
+                        <p class="product-name">Yogurt</p>
+                        <p class="price">₹20.00</p>
+                    </div>
+                    <button class="add-btn" onclick="addToBill('Yogurt', 20)">+</button>
+                </div>
+            </div>
+        </div>
+        <div id="billing-panel">
+            <h3 id="bill-title">Billing</h3>
+            <div id="bill-items"></div>
+            <div id="bill-summary">
+                <p>Subtotal:<span id="sub-total">₹ 0</span></p>
+                <p>GST (5%):<span id="gst-amount">₹ 0.00</span></p>
+                <p>Discount:
+                    <select id="discount-type">
+                        <option value="0">No Discount</option>
+                        <option value="5">5% OFF</option>
+                        <option value="10">10% OFF</option>
+                        <option value="15">15% OFF</option>
+                        <option value="20">20% OFF</option>
+                        <option value="custom">Custom Amount</option>
+                    </select>
+                    <input type="number" id="discount-custom" placeholder="₹ Custom">
+                </p>
+                <p>Grand Total:<span id="grand-total">₹ 0.00</span></p>
+                <div class="customer-box">
+                    <h3>Customer Details</h3>
+
+                    <div class="input-group">
+                        <input type="text" id="customer-name" placeholder="👤 Enter Name">
+                    </div>
+
+                    <div class="input-group">
+                        <input type="text" id="customer-phone" placeholder="📞 Enter Phone Number">
+                    </div>
+                    <small id="phone-error" style="color: red; display: none;">Phone must be 10 digits</small>
+                </div>
+                <button id="checkout-btn" onclick="sendBillToServer()">Checkout</button>
+                <div id="btn">
+                    <button id="hold-btn">Hold Bill</button>
+                    <button id="resume-btn">Resume Bill</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../JS/cashier.js"></script>
+</body>
+</html>
